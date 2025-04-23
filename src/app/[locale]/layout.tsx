@@ -12,18 +12,32 @@ const geistMono = Geist_Mono({
   subsets: ["latin"],
 });
 
+// ✅ Static locale generation for build-time
 export function generateStaticParams() {
   return ["en", "de", "es", "fr", "it", "ar"].map((locale) => ({ locale }));
 }
 
-export default async function LocaleLayout({
-  children,
-  params,
-}: {
+// ✅ Define props outside the layout
+interface LayoutProps {
   children: React.ReactNode;
   params: { locale: string };
+}
+
+// ✅ Layout itself is not async
+export default function LocaleLayout({ children, params }: LayoutProps) {
+  return (
+    <LocaleLayoutInner locale={params.locale}>{children}</LocaleLayoutInner>
+  );
+}
+
+// ✅ Inner async wrapper handles message loading
+async function LocaleLayoutInner({
+  children,
+  locale,
+}: {
+  children: React.ReactNode;
+  locale: string;
 }) {
-  const locale = params.locale ?? "en";
   let messages;
   try {
     messages = (await import(`@/messages/${locale}.json`)).default;
