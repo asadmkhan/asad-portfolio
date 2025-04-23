@@ -3,7 +3,6 @@ import { notFound } from "next/navigation";
 import { Geist, Geist_Mono } from "next/font/google";
 import "../../globals.css";
 import type { ReactNode } from 'react';
-import type { LayoutProps } from 'next';
 
 interface LocaleLayoutProps {
   children: ReactNode;
