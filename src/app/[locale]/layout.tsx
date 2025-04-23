@@ -13,9 +13,10 @@ const geistMono = Geist_Mono({
 });
 
 // ✅ Static locale generation for build-time
-export function generateStaticParams() {
+export async function generateStaticParams() {
   return ["en", "de", "es", "fr", "it", "ar"].map((locale) => ({ locale }));
 }
+
 
 // ✅ Define props outside the layout
 interface LayoutProps {
