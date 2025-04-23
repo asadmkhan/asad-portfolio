@@ -1,59 +1,45 @@
-import { NextIntlClientProvider } from "next-intl";
-import { notFound } from "next/navigation";
-import { Geist, Geist_Mono } from "next/font/google";
 import "../../globals.css";
+import { Geist, Geist_Mono } from "next/font/google";
+import { notFound } from "next/navigation";
+import { LocaleProvider } from "./provider";
+import type { ReactNode } from "react";
 
 const geistSans = Geist({
   variable: "--font-geist-sans",
   subsets: ["latin"],
 });
+
 const geistMono = Geist_Mono({
   variable: "--font-geist-mono",
   subsets: ["latin"],
 });
 
-// ✅ Static locale generation for build-time
 export async function generateStaticParams() {
   return ["en", "de", "es", "fr", "it", "ar"].map((locale) => ({ locale }));
 }
 
-
-// ✅ Define props outside the layout
-interface LayoutProps {
-  children: React.ReactNode;
-  params: { locale: string };
-}
-
-// ✅ Layout itself is not async
-export default function LocaleLayout({ children, params }: LayoutProps) {
-  return (
-    <LocaleLayoutInner locale={params.locale}>{children}</LocaleLayoutInner>
-  );
-}
-
-// ✅ Inner async wrapper handles message loading
-async function LocaleLayoutInner({
+export default async function Layout({
   children,
-  locale,
+  params,
 }: {
-  children: React.ReactNode;
-  locale: string;
+  children: ReactNode;
+  params: { locale: string };
 }) {
   let messages;
   try {
-    messages = (await import(`@/messages/${locale}.json`)).default;
+    messages = (await import(`@/messages/${params.locale}.json`)).default;
   } catch {
     notFound();
   }
 
   return (
-    <html lang={locale}>
+    <html lang={params.locale}>
       <body
         className={`${geistSans.variable} ${geistMono.variable} antialiased`}
       >
-        <NextIntlClientProvider locale={locale} messages={messages}>
+        <LocaleProvider locale={params.locale} messages={messages}>
           {children}
-        </NextIntlClientProvider>
+        </LocaleProvider>
       </body>
     </html>
   );

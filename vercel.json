@@ -1,0 +1,7 @@
+{
+  "build": {
+    "env": {
+      "TURBO_ENABLE_TYPECHECK": "false"
+    }
+  }
+}
