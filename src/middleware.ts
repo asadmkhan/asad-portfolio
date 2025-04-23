@@ -1,5 +1,4 @@
 import createMiddleware from 'next-intl/middleware';
-import { NextRequest } from 'next/server';
 
 const PUBLIC_LOCALES = ['en', 'de', 'es', 'fr', 'it', 'ar'];
 const DEFAULT_LOCALE = 'en';
