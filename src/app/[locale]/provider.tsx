@@ -1,6 +1,6 @@
 "use client";
 import { ReactNode } from "react";
-import { NextIntlClientProvider } from "next-intl";
+import { NextIntlClientProvider, Messages } from "next-intl";
 
 export function LocaleProvider({
   locale,
@@ -8,7 +8,7 @@ export function LocaleProvider({
   children,
 }: {
   locale: string;
-  messages: any;
+  messages: Messages;
   children: ReactNode;
 }) {
   return (
