@@ -2,6 +2,12 @@ import { NextIntlClientProvider } from "next-intl";
 import { notFound } from "next/navigation";
 import { Geist, Geist_Mono } from "next/font/google";
 import "../../globals.css";
+import type { ReactNode } from 'react';
+
+type Props = {
+  children: ReactNode;
+  params: { locale: string };
+};
 
 const geistSans = Geist({
   variable: "--font-geist-sans",
@@ -16,13 +22,8 @@ export function generateStaticParams() {
   return ["en", "de", "es", "fr", "it", "ar"].map((locale) => ({ locale }));
 }
 
-export default async function LocaleLayout({
-  children,
-  params: { locale = "en" }, // Destructure with default value directly in parameters
-}: {
-  children: React.ReactNode;
-  params: { locale?: string };
-}) {
+export default async function LocaleLayout({ children, params }: Props) {
+  const locale = params.locale ?? 'en';
   let messages;
   try {
     messages = (await import(`@/messages/${locale}.json`)).default;
