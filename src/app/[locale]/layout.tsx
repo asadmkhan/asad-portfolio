@@ -3,11 +3,14 @@ import { notFound } from "next/navigation";
 import { Geist, Geist_Mono } from "next/font/google";
 import "../../globals.css";
 import type { ReactNode } from 'react';
+import type { LayoutProps } from 'next';
 
-type Props = {
+interface LocaleLayoutProps {
   children: ReactNode;
-  params: { locale: string };
-};
+  params: {
+    locale: string;
+  };
+}
 
 const geistSans = Geist({
   variable: "--font-geist-sans",
@@ -22,7 +25,7 @@ export function generateStaticParams() {
   return ["en", "de", "es", "fr", "it", "ar"].map((locale) => ({ locale }));
 }
 
-export default async function LocaleLayout({ children, params }: Props) {
+export default async function LocaleLayout({ children, params }: LocaleLayoutProps) {
   const locale = params.locale ?? 'en';
   let messages;
   try {
