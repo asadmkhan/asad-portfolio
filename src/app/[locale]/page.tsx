@@ -88,7 +88,13 @@ export default function Home() {
 
       <main className="pt-24 md:pt-20">
         <section className="bg-gray-900 text-white min-h-[60vh] flex flex-col justify-center items-center text-center py-12 px-4">
-          <h1 className="text-3xl md:text-5xl font-bold mb-2">{t("name")}</h1>
+          <h1 className="text-3xl md:text-5xl font-bold mb-2">
+            {t("homepageH1")}
+          </h1>{" "}
+          <h2 className="text-2xl md:text-3xl font-semibold mb-2">
+            {t("name")}
+          </h2>{" "}
+          {/* Your Name */}
           <p className="text-lg md:text-xl font-light mb-2">{t("tagline")}</p>
           <p className="text-sm md:text-base max-w-2xl mb-4">
             {t("specialty")}
@@ -98,7 +104,7 @@ export default function Home() {
               href="mailto:asadmateenkhan@gmail.com"
               className="bg-blue-500 px-4 py-2 rounded hover:bg-blue-600"
             >
-              {t("email")}
+              {t("ctaEmail")}
             </a>
             <a
               href="https://www.linkedin.com/in/asadmkhan"
@@ -106,53 +112,16 @@ export default function Home() {
               rel="noreferrer"
               className="border border-white px-4 py-2 rounded hover:bg-white hover:text-black"
             >
-              {t("linkedin")}
+              {t("ctaLinkedIn")}
             </a>
           </div>
         </section>
 
-        {/* <section id="skills" className="p-10 bg-white text-gray-800">
-          <h2 className="text-3xl font-bold mb-6 text-center">{t("skills")}</h2>
-          <div className="grid grid-cols-2 sm:grid-cols-3 md:grid-cols-4 lg:grid-cols-6 xl:grid-cols-8 gap-2 text-center">
-            {[
-              "C#",
-              ".NET (3.5 - 9)",
-              "Node.js",
-              "React.js",
-              "Angular.js",
-              "Vue.js",
-              "SQL Server",
-              "MongoDB",
-              "Docker",
-              "Kubernetes",
-              "Graph API",
-              "Selenium",
-              "HTML5",
-              "CSS3",
-              "Bootstrap",
-              "Material UI",
-              "SCSS",
-              "AJAX",
-              "JSON",
-              "XML",
-              "ML.NET",
-              "Telerik",
-              "Highcharts",
-              "d3",
-              "Crystal Reports",
-            ].map((skill) => (
-              <div
-                key={skill}
-                className="p-4 border rounded shadow hover:shadow-lg"
-              >
-                {skill}
-              </div>
-            ))}
-          </div>
-        </section> */}
-
         <section id="skills" className="p-10 bg-white text-gray-800">
           <h2 className="text-3xl font-bold mb-6 text-center">{t("skills")}</h2>
+          <p className="text-center max-w-3xl mx-auto mb-8 text-sm md:text-base">
+            {t("skillsIntro")}
+          </p>
           <div className="max-w-5xl mx-auto grid grid-cols-1 md:grid-cols-2 gap-6">
             <div>
               <h3 className="text-xl font-semibold mb-2">
@@ -211,65 +180,13 @@ export default function Home() {
           </div>
         </section>
 
-        {/* <section id="experience" className="p-10 bg-gray-100">
-          <h2 className="text-3xl font-bold mb-6 text-center">
-            {t("experience")}
-          </h2>
-          <div className="max-w-4xl mx-auto space-y-6">
-            <div>
-              <h3 className="text-xl font-semibold">
-                Init Consulting AG (Germany)
-              </h3>
-              <p className="text-sm text-gray-600">
-                Senior Software Engineer | 2020 – Present
-              </p>
-              <ul className="list-disc list-inside mt-2 text-sm">
-                <li>{t("exp1_1")}</li>
-                <li>{t("exp1_2")}</li>
-                <li>{t("exp1_3")}</li>
-              </ul>
-            </div>
-            <div>
-              <h3 className="text-xl font-semibold">Bukhatir Group (UAE)</h3>
-              <p className="text-sm text-gray-600">
-                Senior Software Engineer | 2018 – 2020
-              </p>
-              <ul className="list-disc list-inside mt-2 text-sm">
-                <li>{t("exp2_1")}</li>
-                <li>{t("exp2_2")}</li>
-              </ul>
-            </div>
-            <div>
-              <h3 className="text-xl font-semibold">
-                Polyvista Inc (Pakistan)
-              </h3>
-              <p className="text-sm text-gray-600">
-                Software Engineer | 2013 – 2018
-              </p>
-              <ul className="list-disc list-inside mt-2 text-sm">
-                <li>{t("exp3_1")}</li>
-                <li>{t("exp3_2")}</li>
-              </ul>
-            </div>
-            <div>
-              <h3 className="text-xl font-semibold">
-                SSA Soft & TriSoft (Pakistan)
-              </h3>
-              <p className="text-sm text-gray-600">
-                Software Engineer | 2012 – 2013
-              </p>
-              <ul className="list-disc list-inside mt-2 text-sm">
-                <li>{t("exp4_1")}</li>
-                <li>{t("exp4_2")}</li>
-              </ul>
-            </div>
-          </div>
-        </section> */}
-
         <section id="experience" className="p-10 bg-gray-100">
           <h2 className="text-3xl font-bold mb-6 text-center">
             {t("experience")}
           </h2>
+          <p className="text-center max-w-3xl mx-auto mb-8 text-sm md:text-base">
+            {t("experienceIntro")}
+          </p>
           <div className="max-w-5xl mx-auto space-y-10">
             <div>
               <h3 className="text-xl font-semibold">
@@ -348,6 +265,9 @@ export default function Home() {
           <h2 className="text-3xl font-bold mb-6 text-center">
             {t("education")}
           </h2>
+          <p className="text-center max-w-3xl mx-auto mb-8 text-sm md:text-base">
+            {t("educationIntro")}
+          </p>
           <div className="max-w-4xl mx-auto text-center space-y-4">
             <p>{t("edu1")}</p>
             <p>{t("edu2")}</p>
@@ -357,8 +277,13 @@ export default function Home() {
 
         <section id="certifications" className="p-10 bg-gray-100 text-center">
           <h2 className="text-3xl font-bold mb-6">{t("certifications")}</h2>
-          <p>{t("cert1")}</p>
-          <p>{t("cert2")}</p>
+          <p className="text-center max-w-3xl mx-auto mb-8 text-sm md:text-base">
+            {t("certificationsIntro")}
+          </p>
+          <div>
+            <p>{t("cert1")}</p>
+            <p>{t("cert2")}</p>
+          </div>
         </section>
 
         <section
@@ -366,6 +291,9 @@ export default function Home() {
           className="p-10 bg-gray-900 text-white text-center"
         >
           <h2 className="text-3xl font-bold mb-4">{t("contact")}</h2>
+          <p className="text-center max-w-3xl mx-auto mb-8 text-sm md:text-base">
+            {t("contactIntro")}
+          </p>
           <p>
             Email:{" "}
             <a href="mailto:asadmateenkhan@gmail.com" className="underline">

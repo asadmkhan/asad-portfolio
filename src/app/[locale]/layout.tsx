@@ -1,18 +1,14 @@
 import "../../globals.css";
-import { Geist, Geist_Mono } from "next/font/google";
 import { notFound } from "next/navigation";
 import { LocaleProvider } from "./provider";
 import type { ReactNode } from "react";
+import { Inter } from 'next/font/google';
 
-const geistSans = Geist({
-  variable: "--font-geist-sans",
-  subsets: ["latin"],
+const inter = Inter({
+  subsets: ['latin'],
+  variable: '--font-inter',
 });
 
-const geistMono = Geist_Mono({
-  variable: "--font-geist-mono",
-  subsets: ["latin"],
-});
 
 export async function generateStaticParams() {
   return ["en", "de", "es", "fr", "it", "ar"].map((locale) => ({ locale }));
@@ -51,8 +47,8 @@ export default async function Layout({
           }}
         />
       </head>
-      <body
-        className={`${geistSans.variable} ${geistMono.variable} antialiased`}
+      <body 
+        className={`${inter.variable} antialiased`}
       >
         <LocaleProvider locale={params.locale} messages={messages}>
           {children}
