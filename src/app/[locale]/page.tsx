@@ -3,6 +3,7 @@ import Head from "next/head";
 import { useState } from "react";
 import { useTranslations } from "next-intl";
 import LanguageSwitcher from "@/components/LanguageSwitcher";
+import Link from "next/link";
 
 export default function Home() {
   const [showMobileMenu, setShowMobileMenu] = useState(false);
@@ -16,6 +17,10 @@ export default function Home() {
       </Head>
 
       <nav className="hidden md:flex fixed top-0 left-0 right-0 bg-gray-900 text-white py-4 shadow z-50 justify-center gap-6 text-sm md:text-base">
+        <Link href="/blog" className="hover:underline">
+          Blog
+        </Link>
+
         <a href="#skills" className="hover:underline">
           {t("skills")}
         </a>
@@ -275,7 +280,10 @@ export default function Home() {
           </div>
         </section>
 
-        <section id="certifications" className="p-10 bg-white text-gray-900 text-center">
+        <section
+          id="certifications"
+          className="p-10 bg-white text-gray-900 text-center"
+        >
           <h2 className="text-3xl font-bold mb-6">{t("certifications")}</h2>
           <p className="text-center max-w-3xl mx-auto mb-8 text-sm md:text-base">
             {t("certificationsIntro")}
