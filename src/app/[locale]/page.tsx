@@ -180,7 +180,7 @@ export default function Home() {
           </div>
         </section>
 
-        <section id="experience" className="p-10 bg-gray-100">
+        <section id="experience" className="p-10 bg-white text-gray-900">
           <h2 className="text-3xl font-bold mb-6 text-center">
             {t("experience")}
           </h2>
