@@ -261,7 +261,7 @@ export default function Home() {
           </div>
         </section>
 
-        <section id="education" className="p-10 bg-white">
+        <section id="education" className="p-10 bg-white text-gray-900">
           <h2 className="text-3xl font-bold mb-6 text-center">
             {t("education")}
           </h2>
@@ -275,7 +275,7 @@ export default function Home() {
           </div>
         </section>
 
-        <section id="certifications" className="p-10 bg-gray-100 text-center">
+        <section id="certifications" className="p-10 bg-white text-gray-900 text-center">
           <h2 className="text-3xl font-bold mb-6">{t("certifications")}</h2>
           <p className="text-center max-w-3xl mx-auto mb-8 text-sm md:text-base">
             {t("certificationsIntro")}
