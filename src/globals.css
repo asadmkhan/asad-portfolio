@@ -22,3 +22,23 @@ body {
   color: var(--foreground);
   font-family: var(--font-inter), Arial, Helvetica, sans-serif;
 }
+
+/* Prevent blog styles from leaking */
+.blog-content {
+  isolation: isolate; /* Prevent styles from leaking */
+  margin-top: 1rem;
+}
+
+/* Ensure blog typography is properly reset */
+.blog-content * {
+  all: unset;
+  display: revert;
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+/* Preserve layout */
+body * {
+  box-sizing: border-box;
+}

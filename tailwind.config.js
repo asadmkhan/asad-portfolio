@@ -1,15 +1,17 @@
+import typography from "@tailwindcss/typography";
+
 /** @type {import('tailwindcss').Config} */
 module.exports = {
   content: [
-    "./src/app/**/*.{js,ts,jsx,tsx}",
-    "./src/components/**/*.{js,ts,jsx,tsx}"
+    "./src/**/*.{js,ts,jsx,tsx,mdx}",
+    "./src/content/blog/**/*.{md,mdx}",
   ],
   theme: {
     extend: {
       fontFamily: {
-        sans: ['var(--font-inter)', 'sans-serif'],
+        sans: ["var(--font-inter)", "sans-serif"],
       },
     },
   },
-  plugins: ['@tailwindcss/typography'],
-}
+  plugins: [typography],
+};
